@@ -1,0 +1,24 @@
+{
+  "name": "insta-clone-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "e-graphql-server": "^0.12.8",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.5.0",
+    "mongoose": "^6.3.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.3.1"
+  }
+}
