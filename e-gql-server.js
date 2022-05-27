@@ -8,6 +8,7 @@ import pkg2 from "e-graphql-server";
 
 const { buildSchema } = pkg;
 const { graphqlHTTP } = pkg2;
+import { data } from "./mock.js";
 //
 //
 const port = process.env.PORT || 8001;
@@ -23,6 +24,7 @@ var schema = buildSchema(`
     type Query{
         story:[Story!]!,
         likes(id: String): [Likes!]!
+        posts: [Posts]
     }
     type Story{
         username: String!,
@@ -35,13 +37,24 @@ var schema = buildSchema(`
       user_name: String,
       avatar: String
     }
+    type Posts{
+     id: Int,
+     first_name: String,
+     last_name: String,
+     email: String,
+     gender: String,
+     ip_address: String,
+     department: String,
+     dob: String,
+     city: String,
+     state: String,
+     country: String,
+     country_code: String,
+    }
 `);
 
 var root = {
-  story: () => {
-    console.log("story", Cards.find());
-    return Cards.find();
-  },
+  story: () =>  Cards.find(),
   likes: (root) => {
     return [
       {
@@ -492,6 +505,7 @@ var root = {
       },
     ];
   },
+  posts: () => data,
 };
 
 var app = express();
